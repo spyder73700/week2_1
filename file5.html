@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 5 - Emotions & Stress Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    .question h3 {
+      color: #222;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      margin-top: 20px;
+    }
+    .correct {
+      background-color: #d4edda;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Week 5: Emotions & Stress Quiz</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      { question: "An unfocused, relatively mild feeling that exists as background to our daily experience is called:", options: ["Behaviour", "Perception", "Mood", "Envy"], answer: "Mood" },
+      { question: "The psychological effort involved in holding back one’s true emotions is called:", options: ["Emotional dissonance", "Emotional labor", "Emotional Attachment", "Temperament"], answer: "Emotional labor" },
+      { question: "When John failed his driving license test, he starts to remember how his friends used to tease him saying he was not a good driver. This is an example of:", options: ["Work-family spillover effect", "Emotional dissonance", "Empathy", "Mood congruence effect"], answer: "Mood congruence effect" },
+      { question: "__________ is a mild form of hate.", options: ["Guilt", "Humiliation", "Resentment", "Shame"], answer: "Resentment" },
+      { question: "Threat-based aggression can stem from both a real stimulus or a perceived stimulus.", options: ["True", "False"], answer: "True" },
+      { question: "___________ is when you have a goal and you are moving towards that goal and you feel that something or someone is stopping you from reaching that goal.", options: ["Threat-based aggression", "Instrumental aggression", "Irritable aggression", "Frustration-based aggression"], answer: "Frustration-based aggression" },
+      { question: "Fear of being rejected is one of the main reasons that make people non-assertive.", options: ["True", "False"], answer: "True" },
+      { question: "The stress which happens because of positive incidences is called:", options: ["Distress", "Eustress", "Hypo-stress", "Hyper work stress"], answer: "Eustress" },
+      { question: "The feeling of completely tired and exhausted when you are stressed for a very long time accompanied by lack of meaning is called:", options: ["Burnout", "Absenteeism", "Hypo stress", "Alarm-reaction"], answer: "Burnout" },
+      { question: "What are the behavioural symptoms of stress?", options: ["Low productivity", "Interpersonal conflicts", "Suicidal tendencies", "All of the above"], answer: "All of the above" }
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    quizData.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.classList.add("question");
+      div.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
+      q.options.forEach(opt => {
+        div.innerHTML += `
+          <label>
+            <input type="radio" name="q${index}" value="${opt}"> ${opt}
+          </label>
+        `;
+      });
+      quizContainer.appendChild(div);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      const questions = document.querySelectorAll(".question");
+
+      quizData.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected) {
+          if (selected.value === q.answer) {
+            score++;
+            questions[index].classList.add("correct");
+          } else {
+            questions[index].classList.add("incorrect");
+          }
+        } else {
+          questions[index].classList.add("incorrect");
+        }
+
+        const correctAns = document.createElement("p");
+        correctAns.style.fontWeight = "bold";
+        correctAns.style.color = "#155724";
+        correctAns.textContent = `✔ Correct Answer: ${q.answer}`;
+        questions[index].appendChild(correctAns);
+      });
+
+      document.getElementById("result").textContent = `Your Score: ${score} / ${quizData.length}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
