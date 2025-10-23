@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 6 - Motivation & Needs Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    .question h3 {
+      color: #222;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      margin-top: 20px;
+    }
+    .correct {
+      background-color: #d4edda;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Week 6: Motivation & Needs Quiz</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      { question: "The need to be part of a group is categorized as:", options: ["Achievement motive", "Affiliation motive", "Power motive", "Role conflict"], answer: "Affiliation motive" },
+      { question: "John had applied for several jobs after graduation. One day he received a job offer from Tata Motors and Mahindra Group, both of which he loved to work. The conflict Mr. John is facing in selecting one job is called:", options: ["Role Conflict", "Approach-avoidance conflict", "Approach-approach conflict", "Avoidance-avoidance conflict"], answer: "Approach-approach conflict" },
+      { question: "Money is a form of extrinsic motivation.", options: ["True", "False"], answer: "True" },
+      { question: "According to Maslow’s hierarchy of needs, the highest level of needs one can achieve is:", options: ["Self-actualization", "Social Needs", "Esteem needs", "Safety needs"], answer: "Self-actualization" },
+      { question: "According to Herzberg’s two-factor theory of motivation, pay and security provided by a job is a Motivator.", options: ["True", "False"], answer: "False" },
+      { question: "In Alderfer’s ERG theory of motivation, R stands for", options: ["Reputation", "Regression", "Resilience", "Relatedness"], answer: "Relatedness" },
+      { question: "____________ means that employees feel that the organization treats its employees in a fair manner and a just way.", options: ["Intra-personal conflict", "Self-esteem", "Power motive", "Organizational Justice Climate"], answer: "Organizational Justice Climate" },
+      { question: "__________ is when you are moving towards a certain goal, but certain barriers are stopping you from achieving that goal.", options: ["Goal conflict", "Role conflict", "Frustration", "Satisfaction"], answer: "Frustration" },
+      { question: "___________ is the willingness of a person to put high levels of efforts to reach a goal.", options: ["Emotions", "Motivation", "Frustration", "Incentives"], answer: "Motivation" },
+      { question: "One of the drawbacks of using money as a motivator is that it can reduce extra-role performance.", options: ["True", "False"], answer: "True" }
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    quizData.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.classList.add("question");
+      div.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
+      q.options.forEach(opt => {
+        div.innerHTML += `
+          <label>
+            <input type="radio" name="q${index}" value="${opt}"> ${opt}
+          </label>
+        `;
+      });
+      quizContainer.appendChild(div);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      const questions = document.querySelectorAll(".question");
+
+      quizData.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected) {
+          if (selected.value === q.answer) {
+            score++;
+            questions[index].classList.add("correct");
+          } else {
+            questions[index].classList.add("incorrect");
+          }
+        } else {
+          questions[index].classList.add("incorrect");
+        }
+
+        const correctAns = document.createElement("p");
+        correctAns.style.fontWeight = "bold";
+        correctAns.style.color = "#155724";
+        correctAns.textContent = `✔ Correct Answer: ${q.answer}`;
+        questions[index].appendChild(correctAns);
+      });
+
+      document.getElementById("result").textContent = `Your Score: ${score} / ${quizData.length}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
