@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 3 - Personality & Self Theory Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    .question h3 {
+      color: #222;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      margin-top: 20px;
+    }
+    .correct {
+      background-color: #d4edda;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Week 3: Personality & Self Theory Quiz</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "The meaning of the Latin word ‘Persona’ from which the word Personality arises is:",
+        options: ["Behaviour", "Mask", "Thought", "Person"],
+        answer: "Mask"
+      },
+      {
+        question: "Many psychologists argue that one’s personality can be changed over a period of time because those qualities are formed because of social factors.",
+        options: ["True", "False"],
+        answer: "True"
+      },
+      {
+        question: "According to Sigmund Freud’s psychoanalytic theory, the deepest level of consciousness is:",
+        options: ["Subconscious", "Conscious state", "Unconscious", "Awareness"],
+        answer: "Unconscious"
+      },
+      {
+        question: "According to Sigmund Freud, reality principle is followed by:",
+        options: ["Id", "Super Ego", "Dream", "Ego"],
+        answer: "Ego"
+      },
+      {
+        question: "In social learning theory, the withdrawal of something which somebody likes to strengthen a behaviour is called:",
+        options: ["Negative Reinforcement", "Positive Reinforcement", "Reward", "Punishment"],
+        answer: "Negative Reinforcement"
+      },
+      {
+        question: "The main proponent of Self Theory was:",
+        options: ["Sigmund Freud", "Albert Bandura", "Carl Rogers", "B.F. Skinner"],
+        answer: "Carl Rogers"
+      },
+      {
+        question: "In Johari’s Window model of self-awareness, the part of the self which is not known to ourselves, but others know is called:",
+        options: ["Open", "Blind", "Hidden", "Unknown"],
+        answer: "Blind"
+      },
+      {
+        question: "Employees with high self-esteem are more ready to take responsibilities.",
+        options: ["True", "False"],
+        answer: "True"
+      },
+      {
+        question: "People with _______ locus of control believe that others control their life and whatever happens in their life is because of outside factors.",
+        options: ["Internal", "External"],
+        answer: "External"
+      },
+      {
+        question: "According to Big Five Personality Theory, people who like to experiment and try and find out new things and are less judgmental about people of other cultures are high on:",
+        options: ["Adjustment", "Agreeableness", "Conscientiousness", "Intellectual Openness"],
+        answer: "Intellectual Openness"
+      }
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    quizData.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.classList.add("question");
+      div.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
+      q.options.forEach(opt => {
+        div.innerHTML += `
+          <label>
+            <input type="radio" name="q${index}" value="${opt}"> ${opt}
+          </label>
+        `;
+      });
+      quizContainer.appendChild(div);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      const questions = document.querySelectorAll(".question");
+
+      quizData.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected) {
+          if (selected.value === q.answer) {
+            score++;
+            questions[index].classList.add("correct");
+          } else {
+            questions[index].classList.add("incorrect");
+          }
+        } else {
+          questions[index].classList.add("incorrect");
+        }
+
+        // Show correct answer below each question
+        const correctAns = document.createElement("p");
+        correctAns.style.fontWeight = "bold";
+        correctAns.style.color = "#155724";
+        correctAns.textContent = `✔ Correct Answer: ${q.answer}`;
+        questions[index].appendChild(correctAns);
+      });
+
+      document.getElementById("result").textContent = `Your Score: ${score} / ${quizData.length}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
