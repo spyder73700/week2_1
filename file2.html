@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Perception and Attribution Quiz</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h1 {
+    text-align: center;
+    color: #1e293b;
+  }
+  .question {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+  }
+  .question h3 {
+    margin-bottom: 10px;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  button {
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+  }
+  button:hover {
+    background-color: #1d4ed8;
+  }
+  .result {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+  .correct {
+    background-color: #dcfce7;
+  }
+  .wrong {
+    background-color: #fee2e2;
+  }
+  .explanation {
+    font-size: 14px;
+    color: #475569;
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Perception and Attribution Quiz</h1>
+    <form id="quizForm"></form>
+    <button type="button" id="submitBtn">Submit Quiz</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        q: "The process of giving meaning to sensory stimuli through organizing and interpreting is called:",
+        options: ["Sensation", "Perception", "Sublimation", "Organization"],
+        answer: 1,
+        explanation: "Perception is the process of giving meaning to sensory inputs."
+      },
+      {
+        q: "Perception is highly objective.",
+        options: ["True", "False"],
+        answer: 1,
+        explanation: "False — perception is subjective and varies between individuals."
+      },
+      {
+        q: "Which of the following is an internal factor that influence the principles of perceptual selection?",
+        options: ["Contrast", "Repetition", "Motion", "Habit"],
+        answer: 3,
+        explanation: "Habit is an internal factor influencing perceptual selection."
+      },
+      {
+        q: "In the below picture, we tend to see columns of dots due to a perceptual grouping effect called:",
+        options: ["Similarity", "Proximity", "Continuity", "Symmetry"],
+        answer: 1,
+        explanation: "Proximity leads us to perceive items that are close together as belonging to a group."
+      },
+      {
+        q: "In the below image, one can still perceive the opening door to be of a rectangle shape due to:",
+        options: ["Figure-Ground Perception", "Optical Illusions", "Perceptual Constancy", "Social Perception"],
+        answer: 2,
+        explanation: "Perceptual Constancy allows recognizing objects as having the same shape despite changes in view."
+      },
+      {
+        q: "According to Kelley’s theory of causal attribution, the extent to which other people behave in the same manner as the person we are judging is called:",
+        options: ["Consensus", "Consistency", "Distinctiveness", "Identity"],
+        answer: 0,
+        explanation: "Consensus measures how others behave in similar situations."
+      },
+      {
+        q: "The tendency to attribute others’ action to internal causes while largely ignoring external factors is called:",
+        options: ["Halo effect", "Team-Halo effect", "Fundamental attribution error", "Similar-to-me effect"],
+        answer: 2,
+        explanation: "Fundamental Attribution Error refers to overemphasizing internal traits over external causes."
+      },
+      {
+        q: "The word “Carpenter” immediately brings in to memory the image of a male individual rather than a female individual. This is an example of a job stereotype.",
+        options: ["True", "False"],
+        answer: 0,
+        explanation: "True — it's an example of gender-based job stereotyping."
+      },
+      {
+        q: "There are many women at the bottom and middle level management roles but only a very few make it to the top. This is due to:",
+        options: ["Impression Management techniques", "Golem effect", "Pygmalion effect", "Glass-ceiling effect"],
+        answer: 3,
+        explanation: "The Glass Ceiling Effect prevents women from advancing to top management roles."
+      },
+      {
+        q: "The process through which individuals attempt to determine the causes behind others’ behaviour is called attribution.",
+        options: ["True", "False"],
+        answer: 0,
+        explanation: "True — attribution is the process of explaining the causes of behaviour."
+      }
+    ];
+
+    const quizForm = document.getElementById("quizForm");
+    const resultDiv = document.getElementById("result");
+    const submitBtn = document.getElementById("submitBtn");
+
+    questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.classList.add("question");
+      div.innerHTML = `
+        <h3>${i + 1}. ${q.q}</h3>
+        ${q.options.map(
+          (opt, idx) => `
+          <label>
+            <input type="radio" name="q${i}" value="${idx}">
+            ${opt
