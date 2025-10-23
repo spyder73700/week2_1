@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 4 - Learning & Attitudes Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    .question h3 {
+      color: #222;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      margin-top: 20px;
+    }
+    .correct {
+      background-color: #d4edda;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Week 4: Learning & Attitudes Quiz</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "A relatively permanent change in behaviour occurring as a result of experience is called",
+        options: ["Thinking", "Sensation", "Learning", "Prejudice"],
+        answer: "Learning"
+      },
+      {
+        question: "In Pavlov’s Dog experiment, the food presented which makes the dog salivate is:",
+        options: ["Unconditional stimulus", "Unconditional response", "Conditioned stimulus", "Conditioned response"],
+        answer: "Unconditional stimulus"
+      },
+      {
+        question: "In Operant conditioning, the process through which the responses that are no longer reinforced tend to gradually diminish in strength is called:",
+        options: ["Positive reinforcement", "Negative Reinforcement", "Punishment", "Extinction"],
+        answer: "Extinction"
+      },
+      {
+        question: "After watching a Dance TV show, a kid starts to make dance moves. This is an example of:",
+        options: ["Operant conditioning", "Classical conditioning", "Observational learning", "Negative Reinforcement"],
+        answer: "Observational learning"
+      },
+      {
+        question: "__________ are evaluative statements towards objects, people or events.",
+        options: ["Learning", "Attitudes", "Memory", "Personality"],
+        answer: "Attitudes"
+      },
+      {
+        question: "Opinion is primarily _______ in nature.",
+        options: ["Affective", "Cognitive", "Behavioural", "Unconscious"],
+        answer: "Cognitive"
+      },
+      {
+        question: "The intensity of an attitude or the magnitude/degree of its favorableness is called",
+        options: ["Multiplexity", "Relation to need", "Centrality", "Valence"],
+        answer: "Valence"
+      },
+      {
+        question: "When people do not provide honest answers to certain questions because they feel that it is not right to give those answers, it is called:",
+        options: ["Social Loafing", "Fatigue", "Social Desirability Effect", "Sampling"],
+        answer: "Social Desirability Effect"
+      },
+      {
+        question: "Uncomfortable tension which comes from holding two conflicting thoughts in the mind at the same time is called Cognitive Dissonance.",
+        options: ["True", "False"],
+        answer: "True"
+      },
+      {
+        question: "Providing more information can lead to change in attitude.",
+        options: ["True", "False"],
+        answer: "True"
+      }
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    quizData.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.classList.add("question");
+      div.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
+      q.options.forEach(opt => {
+        div.innerHTML += `
+          <label>
+            <input type="radio" name="q${index}" value="${opt}"> ${opt}
+          </label>
+        `;
+      });
+      quizContainer.appendChild(div);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      const questions = document.querySelectorAll(".question");
+
+      quizData.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected) {
+          if (selected.value === q.answer) {
+            score++;
+            questions[index].classList.add("correct");
+          } else {
+            questions[index].classList.add("incorrect");
+          }
+        } else {
+          questions[index].classList.add("incorrect");
+        }
+
+        // Show correct answer below each question
+        const correctAns = document.createElement("p");
+        correctAns.style.fontWeight = "bold";
+        correctAns.style.color = "#155724";
+        correctAns.textContent = `✔ Correct Answer: ${q.answer}`;
+        questions[index].appendChild(correctAns);
+      });
+
+      document.getElementById("result").textContent = `Your Score: ${score} / ${quizData.length}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
