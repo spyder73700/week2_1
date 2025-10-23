@@ -159,4 +159,48 @@
           (opt, idx) => `
           <label>
             <input type="radio" name="q${i}" value="${idx}">
-            ${opt
+            ${opt}
+          </label>`
+        ).join('')}
+      `;
+      quizForm.appendChild(div);
+    });
+
+    submitBtn.addEventListener("click", () => {
+      let score = 0;
+      const userAnswers = [];
+      const questionDivs = document.querySelectorAll(".question");
+
+      questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name='q${i}']:checked`);
+        const userAns = selected ? parseInt(selected.value) : -1;
+        userAnswers.push(userAns);
+      });
+
+      userAnswers.forEach((ans, i) => {
+        const qDiv = questionDivs[i];
+        const correct = questions[i].answer;
+        const labels = qDiv.querySelectorAll("label");
+
+        labels.forEach((label, idx) => {
+          label.style.pointerEvents = "none";
+          label.classList.remove("correct", "wrong");
+          if (idx === correct) label.classList.add("correct");
+          if (ans === idx && ans !== correct) label.classList.add("wrong");
+        });
+
+        const exp = document.createElement("div");
+        exp.classList.add("explanation");
+        exp.textContent = questions[i].explanation;
+        qDiv.appendChild(exp);
+
+        if (ans === correct) score++;
+      });
+
+      resultDiv.textContent = `You scored ${score} / ${questions.length}`;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Quiz Submitted";
+    });
+  </script>
+</body>
+</html>
