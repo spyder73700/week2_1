@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 7 Quiz – Trust, Cooperation & Conflict Handling</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #e6f3ff, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0078d7;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0078d7;
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f6f9ff;
+      border-radius: 8px;
+    }
+    .question p {
+      font-weight: 600;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    button {
+      display: block;
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      margin: 20px auto;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    #result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #0078d7;
+      margin-top: 20px;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .wrong {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Week 7 Quiz</h1>
+    <p>Trust, Cooperation, and Conflict Handling</p>
+  </header>
+
+  <main>
+    <h2>Answer all questions below</h2>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. The degree of confidence we have on others in a relationship is called:</p>
+        <label><input type="radio" name="q1" value="Transactional contract"> Transactional contract</label>
+        <label><input type="radio" name="q1" value="Relational contract"> Relational contract</label>
+        <label><input type="radio" name="q1" value="Trust"> Trust</label>
+        <label><input type="radio" name="q1" value="Norms"> Norms</label>
+      </div>
+
+      <div class="question">
+        <p>2. The kind of psychological contract that focuses on long-term interaction and a widely defined relationship is called relational contract.</p>
+        <label><input type="radio" name="q2" value="True"> True</label>
+        <label><input type="radio" name="q2" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>3. The type of trust that is established based on the credibility of a person, for e.g., trusting the doctor:</p>
+        <label><input type="radio" name="q3" value="Trust based on familiarity"> Trust based on familiarity</label>
+        <label><input type="radio" name="q3" value="Swift trust"> Swift trust</label>
+        <label><input type="radio" name="q3" value="Trust based on similarity"> Trust based on similarity</label>
+        <label><input type="radio" name="q3" value="Trust based on social networks"> Trust based on social networks</label>
+      </div>
+
+      <div class="question">
+        <p>4. The characteristic of being respectful towards others is:</p>
+        <label><input type="radio" name="q4" value="Conscientiousness"> Conscientiousness</label>
+        <label><input type="radio" name="q4" value="Sportsmanship"> Sportsmanship</label>
+        <label><input type="radio" name="q4" value="Civic virtue"> Civic virtue</label>
+        <label><input type="radio" name="q4" value="Courtesy"> Courtesy</label>
+      </div>
+
+      <div class="question">
+        <p>5. Treating the common resources responsibly is called civic virtue.</p>
+        <label><input type="radio" name="q5" value="True"> True</label>
+        <label><input type="radio" name="q5" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>6. __________ is helping without expecting anything in return.</p>
+        <label><input type="radio" name="q6" value="Altruism"> Altruism</label>
+        <label><input type="radio" name="q6" value="Competition"> Competition</label>
+        <label><input type="radio" name="q6" value="Cooperation"> Cooperation</label>
+        <label><input type="radio" name="q6" value="Conscientiousness"> Conscientiousness</label>
+      </div>
+
+      <div class="question">
+        <p>7. When each party involved in a task tries to maximize its own gains, often at the expense of others, it is called:</p>
+        <label><input type="radio" name="q7" value="Cooperation"> Cooperation</label>
+        <label><input type="radio" name="q7" value="Interdependency"> Interdependency</label>
+        <label><input type="radio" name="q7" value="Competition"> Competition</label>
+        <label><input type="radio" name="q7" value="None of the above"> None of the above</label>
+      </div>
+
+      <div class="question">
+        <p>8. People who focus on maximizing the joint outcomes of everyone involved are called:</p>
+        <label><input type="radio" name="q8" value="Competitors"> Competitors</label>
+        <label><input type="radio" name="q8" value="Cooperators"> Cooperators</label>
+        <label><input type="radio" name="q8" value="Individualists"> Individualists</label>
+        <label><input type="radio" name="q8" value="Equalizers"> Equalizers</label>
+      </div>
+
+      <div class="question">
+        <p>9. Which conflict handling style is best for both the parties involved?</p>
+        <label><input type="radio" name="q9" value="Competing"> Competing</label>
+        <label><input type="radio" name="q9" value="Avoiding"> Avoiding</label>
+        <label><input type="radio" name="q9" value="Accommodating"> Accommodating</label>
+        <label><input type="radio" name="q9" value="Collaborating"> Collaborating</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+
+    <div id="result"></div>
+  </main>
+
+  <script>
+    const answers = {
+      q1: "Trust",
+      q2: "True",
+      q3: "Swift trust",
+      q4: "Courtesy",
+      q5: "True",
+      q6: "Altruism",
+      q7: "Competition",
+      q8: "Cooperators",
+      q9: "Collaborating"
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let total = Object.keys(answers).length;
+      let resultHTML = "";
+
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected) {
+          if (selected.value === answers[key]) {
+            score++;
+            resultHTML += `<p class='correct'>Question ${key.slice(1)}: Correct ✅ (${answers[key]})</p>`;
+          } else {
+            resultHTML += `<p class='wrong'>Question ${key.slice(1)}: Wrong ❌ (Correct: ${answers[key]})</p>`;
+          }
+        } else {
+          resultHTML += `<p class='wrong'>Question ${key.slice(1)}: Not Attempted ❌ (Correct: ${answers[key]})</p>`;
+        }
+      }
+
+      document.getElementById("result").innerHTML = `
+        <h3>Your Score: ${score} / ${total}</h3>
+        ${resultHTML}
+      `;
+    }
+  </script>
+</body>
+</html>
