@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 11 Quiz – Teams & Culture</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #e8f5e9, #ffffff);
+      margin: 0; padding: 0;
+    }
+    header {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2e7d32;
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #c8e6c9;
+      border-radius: 8px;
+    }
+    .question p { font-weight: 600; color: #333; }
+    label { display: block; margin: 6px 0; cursor: pointer; }
+    button {
+      display: block;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      margin: 20px auto;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #1b5e20; }
+    #result { text-align: center; font-size: 18px; font-weight: bold; color: #2e7d32; margin-top: 20px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Week 11 Quiz</h1>
+    <p>Teams & Organizational Culture</p>
+  </header>
+
+  <main>
+    <h2>Answer all questions below</h2>
+    <form id="quizForm">
+
+      <div class="question">
+        <p>1. Airline attendant teams are an example of:</p>
+        <label><input type="radio" name="q1" value="Production teams"> Production teams</label>
+        <label><input type="radio" name="q1" value="Service teams"> Service teams</label>
+        <label><input type="radio" name="q1" value="Advisory teams"> Advisory teams</label>
+        <label><input type="radio" name="q1" value="Management teams"> Management teams</label>
+      </div>
+
+      <div class="question">
+        <p>2. Groups are more cohesive than teams and groups are a subset of teams.</p>
+        <label><input type="radio" name="q2" value="True"> True</label>
+        <label><input type="radio" name="q2" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>3. The stage of group development at which unwritten rules for teams are established:</p>
+        <label><input type="radio" name="q3" value="Norming"> Norming</label>
+        <label><input type="radio" name="q3" value="Storming"> Storming</label>
+        <label><input type="radio" name="q3" value="Forming"> Forming</label>
+        <label><input type="radio" name="q3" value="Adjourning"> Adjourning</label>
+      </div>
+
+      <div class="question">
+        <p>4. Taking advantage of other members in a group and claiming ownership for their work is called:</p>
+        <label><input type="radio" name="q4" value="Altruism"> Altruism</label>
+        <label><input type="radio" name="q4" value="Groupthink"> Groupthink</label>
+        <label><input type="radio" name="q4" value="Freeriding"> Freeriding</label>
+        <label><input type="radio" name="q4" value="Synergy"> Synergy</label>
+      </div>
+
+      <div class="question">
+        <p>5. Sometimes in teams, people may think that if they work more, other people will take advantage of them and give all the responsibilities to them. So it is better to decrease their performance. This phenomenon is called:</p>
+        <label><input type="radio" name="q5" value="De-individualization"> De-individualization</label>
+        <label><input type="radio" name="q5" value="Social loafing"> Social loafing</label>
+        <label><input type="radio" name="q5" value="Freeriding"> Freeriding</label>
+        <label><input type="radio" name="q5" value="Sucker aversion"> Sucker aversion</label>
+      </div>
+
+      <div class="question">
+        <p>6. Low trust among the team members can often lead to social loafing.</p>
+        <label><input type="radio" name="q6" value="True"> True</label>
+        <label><input type="radio" name="q6" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>7. A type of thought exhibited by group members who try to minimize conflict and reach consensus without critically testing, analyzing and evaluating ideas.</p>
+        <label><input type="radio" name="q7" value="Team cohesion"> Team cohesion</label>
+        <label><input type="radio" name="q7" value="Instrumentality"> Instrumentality</label>
+        <label><input type="radio" name="q7" value="Mundane task"> Mundane task</label>
+        <label><input type="radio" name="q7" value="Groupthink"> Groupthink</label>
+      </div>
+
+      <div class="question">
+        <p>8. Culture influences both the conscious and unconscious level of the mind.</p>
+        <label><input type="radio" name="q8" value="True"> True</label>
+        <label><input type="radio" name="q8" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>9. An organization in which its culture is driven by the motive for affiliation:</p>
+        <label><input type="radio" name="q9" value="Bureaucracy"> Bureaucracy</label>
+        <label><input type="radio" name="q9" value="Industrial Organization"> Industrial Organization</label>
+        <label><input type="radio" name="q9" value="Clubs"> Clubs</label>
+        <label><input type="radio" name="q9" value="Educational Institutions"> Educational Institutions</label>
+      </div>
+
+      <div class="question">
+        <p>10. Which of the following is the source of organizational culture?</p>
+        <label><input type="radio" name="q10" value="Selection practices"> Selection practices</label>
+        <label><input type="radio" name="q10" value="Actions of top management"> Actions of top management</label>
+        <label><input type="radio" name="q10" value="Socialization methods"> Socialization methods</label>
+        <label><input type="radio" name="q10" value="Founder’s vision/mission/attitudes"> Founder’s vision/mission/attitudes</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+
+    <div id="result"></div>
+  </main>
+
+  <script>
+    const answers = {
+      q1: "Service teams",
+      q2: "False",
+      q3: "Norming",
+      q4: "Freeriding",
+      q5: "Sucker aversion",
+      q6: "True",
+      q7: "Groupthink",
+      q8: "True",
+      q9: "Clubs",
+      q10: "Founder’s vision/mission/attitudes"
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let total = Object.keys(answers).length;
+      let resultHTML = "";
+
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected) {
+          if (selected.value === answers[key]) {
+            score++;
+            resultHTML += `<p class='correct'>Question ${key.slice(1)}: Correct ✅ (${answers[key]})</p>`;
+          } else {
+            resultHTML += `<p class='wrong'>Question ${key.slice(1)}: Wrong ❌ (Correct: ${answers[key]})</p>`;
+          }
+        } else {
+          resultHTML += `<p class='wrong'>Question ${key.slice(1)}: Not Attempted ❌ (Correct: ${answers[key]})</p>`;
+        }
+      }
+
+      document.getElementById("result").innerHTML = `
+        <h3>Your Score: ${score} / ${total}</h3>
+        ${resultHTML}
+      `;
+    }
+  </script>
+</body>
+</html>
