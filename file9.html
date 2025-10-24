@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 9 Quiz – Decision Making & Group Dynamics</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #e8f5e9, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2e7d32;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2e7d32;
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f1f8e9;
+      border-radius: 8px;
+    }
+    .question p {
+      font-weight: 600;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    button {
+      display: block;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      margin: 20px auto;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #1b5e20;
+    }
+    #result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-top: 20px;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .wrong {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Week 9 Quiz</h1>
+    <p>Decision Making & Group Dynamics</p>
+  </header>
+
+  <main>
+    <h2>Answer all questions below</h2>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Making the smallest response possible that will reduce the problem to at least a tolerable level is called __________ to decision making.</p>
+        <label><input type="radio" name="q1" value="Satisficing approach"> Satisficing approach</label>
+        <label><input type="radio" name="q1" value="Rational Approach"> Rational Approach</label>
+        <label><input type="radio" name="q1" value="Incremental approach"> Incremental approach</label>
+        <label><input type="radio" name="q1" value="Garbage-can approach"> Garbage-can approach</label>
+      </div>
+
+      <div class="question">
+        <p>2. Having a false sense of satisfaction even when problems start to show up is called:</p>
+        <label><input type="radio" name="q2" value="Complacency"> Complacency</label>
+        <label><input type="radio" name="q2" value="Procrastination"> Procrastination</label>
+        <label><input type="radio" name="q2" value="Defensive avoidance"> Defensive avoidance</label>
+        <label><input type="radio" name="q2" value="Panic"> Panic</label>
+      </div>
+
+      <div class="question">
+        <p>3. Trying to put the responsibility for decision making on somebody else is called buck passing.</p>
+        <label><input type="radio" name="q3" value="True"> True</label>
+        <label><input type="radio" name="q3" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>4. The tendency to be influenced by an initial figure, even when the information is largely irrelevant is called:</p>
+        <label><input type="radio" name="q4" value="Availability bias"> Availability bias</label>
+        <label><input type="radio" name="q4" value="Overconfidence"> Overconfidence</label>
+        <label><input type="radio" name="q4" value="Anchoring and adjustment bias"> Anchoring and adjustment bias</label>
+        <label><input type="radio" name="q4" value="Representativeness"> Representativeness</label>
+      </div>
+
+      <div class="question">
+        <p>5. The group’s emphasis on harmony and conformity leading to a wrong decision is called:</p>
+        <label><input type="radio" name="q5" value="Majority rule"> Majority rule</label>
+        <label><input type="radio" name="q5" value="Synergy"> Synergy</label>
+        <label><input type="radio" name="q5" value="Risk taking in groups"> Risk taking in groups</label>
+        <label><input type="radio" name="q5" value="Groupthink"> Groupthink</label>
+      </div>
+
+      <div class="question">
+        <p>6. Sunk costs can be recovered.</p>
+        <label><input type="radio" name="q6" value="True"> True</label>
+        <label><input type="radio" name="q6" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>7. Tendency to invest additional resources in an apparently losing proposition, influenced by effort, money and time already invested:</p>
+        <label><input type="radio" name="q7" value="Abilene Paradox"> Abilene Paradox</label>
+        <label><input type="radio" name="q7" value="Delphi method"> Delphi method</label>
+        <label><input type="radio" name="q7" value="Escalation of commitment"> Escalation of commitment</label>
+        <label><input type="radio" name="q7" value="Groupthink"> Groupthink</label>
+      </div>
+
+      <div class="question">
+        <p>8. The step in team decision making where the problem is defined and a consensus is arrived about what the problem is:</p>
+        <label><input type="radio" name="q8" value="Discussion"> Discussion</label>
+        <label><input type="radio" name="q8" value="Implementation"> Implementation</label>
+        <label><input type="radio" name="q8" value="Representativeness"> Representativeness</label>
+        <label><input type="radio" name="q8" value="Orientation"> Orientation</label>
+      </div>
+
+      <div class="question">
+        <p>9. The tendency to make different decisions depending on how a problem is presented:</p>
+        <label><input type="radio" name="q9" value="Framing"> Framing</label>
+        <label><input type="radio" name="q9" value="Prospect theory"> Prospect theory</label>
+        <label><input type="radio" name="q9" value="Representativeness"> Representativeness</label>
+        <label><input type="radio" name="q9" value="Bounded rationality"> Bounded rationality</label>
+      </div>
+
+      <div class="question">
+        <p>10. Finding a solution which is satisfactory than optimal is called satisficing approach to decision making.</p>
+        <label><input type="radio" name="q10" value="True"> True</label>
+        <label><input type="radio" name="q10" value="False"> False</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+
+    <div id="result"></div>
+  </main>
+
+  <script>
+    const answers = {
+      q1: "Incremental approach",
+      q2: "Complacency",
+      q3: "True",
+      q4: "Anchoring and adjustment bias",
+      q5: "Groupthink",
+      q6: "False",
+      q7: "Escalation of commitment",
+      q8: "Orientation",
+      q9: "Framing",
+      q10: "True"
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let total = Object.keys(answers).length;
+      let resultHTML = "";
+
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected) {
+          if (selected.value === answers[key]) {
+            score++;
+            resultHTML += `<p class='correct'>Question ${key.slice(1)}: Correct ✅ (${answers[key]})</p>`;
+          } else {
+            resultHTML += `<p class='wrong'>Question ${key.slice(1)}: Wrong ❌ (Correct: ${answers[key]})</p>`;
+          }
+        } else {
+          resultHTML += `<p class='wrong'>Question ${key.slice(1)}: Not Attempted ❌ (Correct: ${answers[key]})</p>`;
+        }
+      }
+
+      document.getElementById("result").innerHTML = `
+        <h3>Your Score: ${score} / ${total}</h3>
+        ${resultHTML}
+      `;
+    }
+  </script>
+</body>
+</html>
