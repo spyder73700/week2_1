@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OB Quiz – 20 Questions</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 25px;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .question h3 {
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      margin-top: 25px;
+    }
+    .correct {
+      background-color: #d4edda;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Organizational Behaviour Quiz (20 Questions)</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      { question: "The process of giving meaning to sensory stimuli through organizing and interpreting is called:", options: ["Sensation", "Perception", "Sublimation", "Organization"], answer: "Perception" },
+      { question: "Perception is highly objective.", options: ["True", "False"], answer: "False" },
+      { question: "Which of the following is an internal factor that influences the principles of perceptual selection?", options: ["Contrast", "Repetition", "Motion", "Habit"], answer: "Habit" },
+      { question: "According to Kelley’s theory of causal attribution, the extent to which other people behave in the same manner as the person we are judging is called:", options: ["Consensus", "Consistency", "Distinctiveness", "Identity"], answer: "Consensus" },
+      { question: "The tendency to attribute others’ actions to internal causes while largely ignoring external factors is called:", options: ["Halo effect", "Team-Halo effect", "Fundamental attribution error", "Similar-to-me effect"], answer: "Fundamental attribution error" },
+      { question: "The meaning of the Latin word ‘Persona’ from which the word Personality arises is:", options: ["Behaviour", "Mask", "Thought", "Person"], answer: "Mask" },
+      { question: "According to Sigmund Freud’s psychoanalytic theory, the deepest level of consciousness is:", options: ["Subconscious", "Conscious state", "Unconscious", "Awareness"], answer: "Unconscious" },
+      { question: "In Johari’s Window model of self-awareness, the part of the self which is not known to ourselves, but others know is called:", options: ["Open", "Blind", "Hidden", "Unknown"], answer: "Blind" },
+      { question: "People with _______ locus of control believe that others control their life and whatever happens in their life is because of outside factors.", options: ["Internal", "External"], answer: "External" },
+      { question: "A relatively permanent change in behaviour occurring as a result of experience is called:", options: ["Thinking", "Sensation", "Learning", "Prejudice"], answer: "Learning" },
+      { question: "In Operant conditioning, the process through which the responses that are no longer reinforced tend to gradually diminish in strength is called:", options: ["Positive reinforcement", "Negative Reinforcement", "Punishment", "Extinction"], answer: "Extinction" },
+      { question: "After watching a Dance TV show, a kid starts to make dance moves. This is an example of:", options: ["Operant conditioning", "Classical conditioning", "Observational learning", "Negative Reinforcement"], answer: "Observational learning" },
+      { question: "Opinion is primarily _______ in nature.", options: ["Affective", "Cognitive", "Behavioural", "Unconscious"], answer: "Cognitive" },
+      { question: "Uncomfortable tension which comes from holding two conflicting thoughts in the mind at the same time is called:", options: ["Cognitive Dissonance", "Attitude Formation", "Learning", "Sublimation"], answer: "Cognitive Dissonance" },
+      { question: "The psychological effort involved in holding back one’s true emotions is called:", options: ["Emotional dissonance", "Emotional labor", "Emotional Attachment", "Temperament"], answer: "Emotional labor" },
+      { question: "Threat-based aggression can stem from both a real stimulus or a perceived stimulus.", options: ["True", "False"], answer: "True" },
+      { question: "The feeling of completely tired and exhausted when you are stressed for a very long time accompanied by lack of meaning is called:", options: ["Burnout", "Absenteeism", "Hypo stress", "Alarm-reaction"], answer: "Burnout" },
+      { question: "The need to be part of a group is categorized as:", options: ["Achievement motive", "Affiliation motive", "Power motive", "Role conflict"], answer: "Affiliation motive" },
+      { question: "According to Maslow’s hierarchy of needs, the highest level of needs one can achieve is:", options: ["Self-actualization", "Social Needs", "Esteem needs", "Safety needs"], answer: "Self-actualization" },
+      { question: "In Alderfer’s ERG theory of motivation, R stands for:", options: ["Reputation", "Regression", "Resilience", "Relatedness"], answer: "Relatedness" }
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    quizData.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.classList.add("question");
+      div.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
+      q.options.forEach(opt => {
+        div.innerHTML += `
+          <label>
+            <input type="radio" name="q${index}" value="${opt}"> ${opt}
+          </label>
+        `;
+      });
+      quizContainer.appendChild(div);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      const questions = document.querySelectorAll(".question");
+
+      quizData.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected) {
+          if (selected.value === q.answer) {
+            score++;
+            questions[index].classList.add("correct");
+          } else {
+            questions[index].classList.add("incorrect");
+          }
+        } else {
+          questions[index].classList.add("incorrect");
+        }
+
+        const correctAns = document.createElement("p");
+        correctAns.style.fontWeight = "bold";
+        correctAns.style.color = "#155724";
+        correctAns.textContent = `✔ Correct Answer: ${q.answer}`;
+        questions[index].appendChild(correctAns);
+      });
+
+      document.getElementById("result").textContent = `Your Score: ${score} / ${quizData.length}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
