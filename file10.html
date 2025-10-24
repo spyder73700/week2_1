@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 10 Quiz – Leadership & Power</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1565c0;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1565c0;
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #e3f2fd;
+      border-radius: 8px;
+    }
+    .question p {
+      font-weight: 600;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    button {
+      display: block;
+      background: #1565c0;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      margin: 20px auto;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0d47a1;
+    }
+    #result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #1565c0;
+      margin-top: 20px;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .wrong {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Week 10 Quiz</h1>
+    <p>Leadership & Power</p>
+  </header>
+
+  <main>
+    <h2>Answer all questions below</h2>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. The source of power which is based on the capacity to administer punishment to others:</p>
+        <label><input type="radio" name="q1" value="Legitimate"> Legitimate</label>
+        <label><input type="radio" name="q1" value="Reward"> Reward</label>
+        <label><input type="radio" name="q1" value="Coercive"> Coercive</label>
+        <label><input type="radio" name="q1" value="Expert"> Expert</label>
+      </div>
+
+      <div class="question">
+        <p>2. Expert power is when you have certain abilities which nobody else has or is very rare.</p>
+        <label><input type="radio" name="q2" value="True"> True</label>
+        <label><input type="radio" name="q2" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>3. Information one possesses, which cannot be recorded or measured is called:</p>
+        <label><input type="radio" name="q3" value="Empowerment"> Empowerment</label>
+        <label><input type="radio" name="q3" value="Referent power"> Referent power</label>
+        <label><input type="radio" name="q3" value="Gossiping"> Gossiping</label>
+        <label><input type="radio" name="q3" value="Tacit knowledge"> Tacit knowledge</label>
+      </div>
+
+      <div class="question">
+        <p>4. The form of political behaviour exhibited when employees try to form a group based on common language they speak is:</p>
+        <label><input type="radio" name="q4" value="Impression management"> Impression management</label>
+        <label><input type="radio" name="q4" value="Building coalitions"> Building coalitions</label>
+        <label><input type="radio" name="q4" value="Blaming"> Blaming</label>
+        <label><input type="radio" name="q4" value="Manipulating information flow"> Manipulating information flow</label>
+      </div>
+
+      <div class="question">
+        <p>5. _________ is the ability to persuade others to seek defined objectives enthusiastically.</p>
+        <label><input type="radio" name="q5" value="Coercion"> Coercion</label>
+        <label><input type="radio" name="q5" value="Behavioural change"> Behavioural change</label>
+        <label><input type="radio" name="q5" value="Leadership"> Leadership</label>
+        <label><input type="radio" name="q5" value="Authority"> Authority</label>
+      </div>
+
+      <div class="question">
+        <p>6. While managers rely on control, leaders _________.</p>
+        <label><input type="radio" name="q6" value="Ask how and when"> Ask how and when</label>
+        <label><input type="radio" name="q6" value="Focus on systems and structure"> Focus on systems and structure</label>
+        <label><input type="radio" name="q6" value="Accept status quo"> Accept status quo</label>
+        <label><input type="radio" name="q6" value="Inspire trust"> Inspire trust</label>
+      </div>
+
+      <div class="question">
+        <p>7. The leadership style where the responsibilities are shared by all and can be very useful in businesses where creative ideas are very important:</p>
+        <label><input type="radio" name="q7" value="Autocratic"> Autocratic</label>
+        <label><input type="radio" name="q7" value="Laissez-Faire"> Laissez-Faire</label>
+        <label><input type="radio" name="q7" value="Task centered"> Task centered</label>
+        <label><input type="radio" name="q7" value="Paternalistic"> Paternalistic</label>
+      </div>
+
+      <div class="question">
+        <p>8. Democratic leadership style encourages decision making from different perspectives.</p>
+        <label><input type="radio" name="q8" value="True"> True</label>
+        <label><input type="radio" name="q8" value="False"> False</label>
+      </div>
+
+      <div class="question">
+        <p>9. The ideal case in Blake Mouton Managerial Grid of Leadership style is:</p>
+        <label><input type="radio" name="q9" value="Country club"> Country club</label>
+        <label><input type="radio" name="q9" value="Impoverished"> Impoverished</label>
+        <label><input type="radio" name="q9" value="Produce or perish"> Produce or perish</label>
+        <label><input type="radio" name="q9" value="Team Leader"> Team Leader</label>
+      </div>
+
+      <div class="question">
+        <p>10. The theory which states that the subordinates will be motivated to follow the leader only when they perceive that the leader can help them to fulfil their goals:</p>
+        <label><input type="radio" name="q10" value="Path-goal theory"> Path-goal theory</label>
+        <label><input type="radio" name="q10" value="Fiedler’s model"> Fiedler’s model</label>
+        <label><input type="radio" name="q10" value="Hersey and Blanchard’s situational leadership theory"> Hersey and Blanchard’s situational leadership theory</label>
+        <label><input type="radio" name="q10" value="Trait theory"> Trait theory</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+
+    <div id="result"></div>
+  </main>
+
+  <script>
+    const answers = {
+      q1: "Coercive",
+      q2: "True",
+      q3: "Tacit knowledge",
+      q4: "Building coalitions",
+      q5: "Leadership",
+      q6: "Inspire trust",
+      q7: "Laissez-Faire",
+      q8: "True",
+      q9: "Team Leader",
+      q10: "Path-goal theory"
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let total = Object.keys(answers).length;
+      let resultHTML = "";
+
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected) {
+          if (selected.value === answers[key]) {
+            score++;
+            resultHTML += `<p class='correct'>Question ${key.slice(1)}: Correct ✅ (${answers[key]})</p>`;
+          } else {
+            resultHTML += `<p class='wrong'>Question ${key.slice(1)}: Wrong ❌ (Correct: ${answers[key]})</p>`;
+          }
+        } else {
+          resultHTML += `<p class='wrong'>Question ${key.slice(1)}: Not Attempted ❌ (Correct: ${answers[key]})</p>`;
+        }
+      }
+
+      document.getElementById("result").innerHTML = `
+        <h3>Your Score: ${score} / ${total}</h3>
+        ${resultHTML}
+      `;
+    }
+  </script>
+</body>
+</html>
