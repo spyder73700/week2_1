@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organizational Behaviour Quiz – Set 2</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f4f6fa;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .question h3 { color: #333; }
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    input[type="radio"] { margin-right: 8px; }
+    button {
+      background: #0078d7;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+    button:hover { background: #005fa3; }
+    .result {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+    .correct { background: #d4edda; }
+    .incorrect { background: #f8d7da; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Organizational Behaviour Quiz – Set 2</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {question:"Response of the organism or system to various stimuli or inputs is called:", options:["Organization","Behaviour","Resource","Productivity"], answer:"Behaviour"},
+      {question:"Which of the following is not an organization?", options:["TATA Steels","UNICEF","Facebook Inc.","Germany"], answer:"Germany"},
+      {question:"More output for less input is called:", options:["Effectiveness","Productivity","Efficiency","Motivation"], answer:"Efficiency"},
+      {question:"The social expectation on an individual is called:", options:["Role","Designation","Job","Task"], answer:"Role"},
+      {question:"Which field can be called as the mother of Organizational Behaviour?", options:["Anthropology","Economics","Industrial Psychology","Law"], answer:"Industrial Psychology"},
+      {question:"The scientific management movement was pioneered by:", options:["Walter Dill Scott","Edward K Strong Jr.","Hugo Munsterberg","Frederick W Taylor"], answer:"Frederick W Taylor"},
+      {question:"The assembly line of production was first introduced by Henry Ford.", options:["True","False"], answer:"True"},
+      {question:"The process of breaking down the entire job into specific tasks to measure time is called:", options:["Time and Motion Study","Workplace management","Job Profile","Productivity"], answer:"Time and Motion Study"},
+      {question:"In an experiment, the group in which you make no changes is called:", options:["Experimental Group","Focus Group","Control Group","Target Group"], answer:"Control Group"},
+      {question:"Hawthorne experiments were conducted to study the impact of assembly line on workers’ health.", options:["True","False"], answer:"False"},
+      {question:"According to Sigmund Freud, reality principle is followed by:", options:["Id","Super Ego","Dream","Ego"], answer:"Ego"},
+      {question:"In social learning theory, the withdrawal of something liked to strengthen a behaviour is called:", options:["Negative Reinforcement","Positive Reinforcement","Reward","Punishment"], answer:"Negative Reinforcement"},
+      {question:"The main proponent of Self Theory was:", options:["Sigmund Freud","Albert Bandura","Carl Rogers","B.F. Skinner"], answer:"Carl Rogers"},
+      {question:"Employees with high self-esteem are more ready to take responsibilities.", options:["True","False"], answer:"True"},
+      {question:"According to Big Five Personality Theory, openness to new experiences indicates:", options:["Adjustment","Agreeableness","Conscientiousness","Intellectual Openness"], answer:"Intellectual Openness"},
+      {question:"The intensity of an attitude or the magnitude of its favorableness is called:", options:["Multiplexity","Relation to need","Centrality","Valence"], answer:"Valence"},
+      {question:"When people do not provide honest answers because they feel it’s not right, it is called:", options:["Social Loafing","Fatigue","Social Desirability Effect","Sampling"], answer:"Social Desirability Effect"},
+      {question:"Providing more information can lead to change in attitude.", options:["True","False"], answer:"True"},
+      {question:"The stress that happens because of positive incidences is called:", options:["Distress","Eustress","Hypo-stress","Hyper work stress"], answer:"Eustress"},
+      {question:"One drawback of using money as a motivator is that it can reduce extra-role performance.", options:["True","False"], answer:"True"}
+    ];
+
+    const quizContainer=document.getElementById("quiz");
+    quizData.forEach((q,i)=>{
+      const div=document.createElement("div");
+      div.classList.add("question");
+      div.innerHTML=`<h3>${i+1}. ${q.question}</h3>`;
+      q.options.forEach(opt=>{
+        div.innerHTML+=`<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label>`;
+      });
+      quizContainer.appendChild(div);
+    });
+
+    function submitQuiz(){
+      let score=0;
+      const questions=document.querySelectorAll(".question");
+      quizData.forEach((q,i)=>{
+        const selected=document.querySelector(`input[name="q${i}"]:checked`);
+        if(selected){
+          if(selected.value===q.answer){
+            score++;questions[i].classList.add("correct");
+          }else{
+            questions[i].classList.add("incorrect");
+          }
+        }else{
+          questions[i].classList.add("incorrect");
+        }
+        const show=document.createElement("p");
+        show.style.fontWeight="bold";
+        show.style.color="#155724";
+        show.textContent=`✔ Correct Answer: ${q.answer}`;
+        questions[i].appendChild(show);
+      });
+      document.getElementById("result").textContent=`Your Score: ${score} / ${quizData.length}`;
+      window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
